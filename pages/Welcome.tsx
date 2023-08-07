@@ -1,9 +1,12 @@
-import React from 'react'
+import Header from "@/components/welcome/Header";
+import Hero from "@/components/welcome/Hero";
+import React from "react";
 
-type Props = {}
-
-export default function Welcome({}: Props) {
+export default function Welcome() {
   return (
-    <div className={"bg-orange-500"}>Welcome</div>
-  )
+    <div className={"h-screen w-full flex flex-col"}>
+      <Header />
+      <Hero />
+    </div>
+  );
 }
