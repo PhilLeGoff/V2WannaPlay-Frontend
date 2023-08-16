@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <body className={tauri.className}>
-      {userData.token ? <Welcome /> : <Main />}
+      {userData.token ? <Main /> : <Welcome />  }
     </body>
   );
 }
