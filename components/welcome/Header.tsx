@@ -4,58 +4,67 @@ import React, { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 
-export default function Header() {
+type Props = {
+  showSignIn: boolean;
+  setShowSignIn: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export default function Header({}: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const iconsStyle = { color: "white", fontSize: "1.5em" };
 
   return (
     <header
       className={
-        "h-1/6 w-full bg-black flex md:justify-between items-center text-lg"
+        "w-full md:h-32 h-24 bg-black flex justify-between items-center text-lg"
       }
-      style={{ height: "14%" }}
     >
-      <div className={"h-full md:w-1/3 flex items-center md:justify-center"}>
-        <div className={"md:w-80 md:h-16 w-64 h-14 md:ml-6 flex relative"}>
+      <div
+        className={
+          "h-full md:w-1/3 flex items-center md:justify-center ml-5 relative"
+        }
+      >
+        <div className={"md:w-72 md:h-12 w-56 h-10 md:ml-6 flex relative"}>
           <Image src="/wannaplay.png" fill={true} alt="Logo" />
         </div>
       </div>
-      {/* <section className={"h-full w-1/3 flex justify-around items-center"}>
-        <Link className={" text-white font-normal"} href="home">
-          HOME
-        </Link>
-        <Link className={" text-white font-normal"} href="about">
-          ABOUT
-        </Link>
-      </section> */}
-      {/* <div className={"h-full flex justify-center"}> */}
       <div
-        className={
-          "h-full md:w-1/3 hidden md:flex md:justify-around items-center md:static absolute"
-        }
+        className={`md:h-full h-58 md:w-1/3 w-full ${
+          menuOpen ? "static" : "hidden"
+        } md:flex md:mr-10 md:justify-around items-center md:static absolute flex flex-col md:mt-0 top-24 left-0 bg-black md:flex-row md:space-x-4 md:bg-opacity-100 bg-opacity-90 transition-all ease-in duration-100`}
       >
-        <Link className={" text-white font-normal"} href="home">
+        <Link
+          className={
+            "my-3  text-white hover:bg-gradient-to-r hover:from-grad-green hover:to-grad-blue hover:bg-clip-text hover:text-opacity-0 font-normal"
+          }
+          href="home"
+        >
           HOME
         </Link>
-        <Link className={" text-white font-normal"} href="about">
+        <Link
+          className={
+            "my-3  text-white hover:bg-gradient-to-r hover:from-grad-green hover:to-grad-blue hover:bg-clip-text hover:text-opacity-0 font-normal"
+          }
+          href="about"
+        >
           ABOUT
         </Link>
-        <div className="rounded-xl  h-2/5  bg-gradient-to-r p-[3px] from-[#02FFC2] via-[#03E1FF] to-[#02FFC2]">
-          <div className="flex flex-col h-full bg-black p-6 text-white rounded-lg justify-center items-center ">
-            SIGN IN
+        <div className="group rounded-xl my-3 mb-6 md:mb-3 h-14 bg-gradient-to-r p-[3px] from-[#02FFC2] via-[#03E1FF] to-[#02FFC2]">
+          <div className="flex flex-col h-full bg-black p-6 rounded-lg justify-center items-center ">
+            <span className=" text-white group-hover:bg-gradient-to-r group-hover:from-grad-green group-hover:to-grad-blue group-hover:bg-clip-text group-hover:text-opacity-0">
+              SIGN IN
+            </span>
           </div>
         </div>
       </div>
-      <div className="md:hidden">
-        {/* <FiMenu /> <IoClose /> */}
+      <div className="md:hidden mr-5">
         {menuOpen ? (
-          <FiMenu
+          <IoClose
             onClick={() => setMenuOpen(!menuOpen)}
             color="white"
             size="2.5rem"
           />
         ) : (
-          <IoClose
+          <FiMenu
             onClick={() => setMenuOpen(!menuOpen)}
             color="white"
             size="2.5rem"
