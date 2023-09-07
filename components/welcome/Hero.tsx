@@ -1,16 +1,26 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
+import Button from "../Button";
+import SignIn from "./SignIn";
+import SignUp from "./signup/SignUp";
 
 type Props = {
   showSignUp: boolean;
   setShowSignUp: React.Dispatch<React.SetStateAction<boolean>>;
+  showSignIn: boolean;
+  setShowSignIn: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function Hero({}: Props) {
+export default function Hero({
+  showSignIn,
+  setShowSignIn,
+  showSignUp,
+  setShowSignUp,
+}: Props) {
   return (
     <div
       className={
-        "bg-dark-grey w-full md:h-full bg-red-700 flex md:flex-row flex-col md:flex-grow text-lg"
+        "relative bg-dark-grey w-full md:h-full bg-red-700 flex md:flex-row flex-col md:flex-grow text-lg"
       }
       style={{ height: "1000px" }}
     >
@@ -28,13 +38,10 @@ export default function Hero({}: Props) {
         <span className="text:xl md:text-2xl md:p-4 px-4 md:px-0 text-white text-center">
           Music lover? Sign up & connect with musicians near you!
         </span>
-        <div className="group mt-8 rounded-xl my-3 mb-6 md:mb-3 h-14 md:h-16 md:w-36 bg-gradient-to-r p-[3px] from-[#02FFC2] via-[#03E1FF] to-[#02FFC2]">
-          <div className="flex flex-col h-full bg-dark-grey p-6  rounded-lg justify-center items-center group-hover:cursor-poUpter ">
-            <span className=" text-white group-hover:bg-gradient-to-r group-hover:from-grad-green group-hover:to-grad-blue group-hover:bg-clip-text group-hover:text-opacity-0">
-              SIGN UP
-            </span>
-          </div>
-        </div>
+        <Button
+          buttonName="SIGN UP"
+          onClickFunction={() => setShowSignUp(true)}
+        />
       </div>
       <div
         className={
@@ -49,6 +56,8 @@ export default function Hero({}: Props) {
           />
         </div>
       </div>
+      {showSignUp && <SignUp setShowSignUp={setShowSignUp} />}
+      {showSignIn && <SignIn setShowSignIn={setShowSignIn} />}
     </div>
   );
 }
