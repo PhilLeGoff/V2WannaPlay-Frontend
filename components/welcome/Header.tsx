@@ -13,8 +13,6 @@ type Props = {
 export default function Header({ setShowSignIn }: Props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => console.log("menu", menuOpen), [menuOpen]);
-
   return (
     <header
       className={

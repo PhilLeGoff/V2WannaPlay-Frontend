@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import SocialHeader from "./SocialHeader";
+import Chats from "./chats/Chats";
+import Friends from "./friends/Friends";
 
 type Props = {};
 
@@ -12,7 +14,7 @@ export default function SocialMain({}: Props) {
         socialDisplay={socialDisplay}
         setSocialDisplay={setSocialDisplay}
       />
-      <div></div>
+      {socialDisplay === 1 ? <Chats /> : <Friends />}
     </div>
   );
 }

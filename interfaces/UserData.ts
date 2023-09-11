@@ -11,4 +11,5 @@ export interface UserData {
   genresLiked: [];
   description: string;
   token: string;
+  profilePicture: string;
 }

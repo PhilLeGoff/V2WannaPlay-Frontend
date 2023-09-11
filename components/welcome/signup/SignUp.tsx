@@ -14,7 +14,7 @@ type Props = { setShowSignUp: React.Dispatch<React.SetStateAction<boolean>> };
 export default function SignUp({ setShowSignUp }: Props) {
   const userState = useSelector((state: any) => state.user.value);
   const dispatch = useDispatch();
-  const [step, setStep] = useState<number>(2);
+  const [step, setStep] = useState<number>(1);
   const [userData, setUserData] = useState<UserData>({
     username: "",
     email: "",
@@ -28,6 +28,7 @@ export default function SignUp({ setShowSignUp }: Props) {
     genresLiked: [],
     description: "",
     token: "",
+    profilePicture: "",
   });
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -48,7 +49,13 @@ export default function SignUp({ setShowSignUp }: Props) {
   async function handleLastPostData(url: string, data: any) {
     await usePostData({ url, data });
 
-    // dispatch(login({ username: userData.username, token: userData.token }));
+    dispatch(
+      login({
+        username: userData.username,
+        token: userData.token,
+        profilePicture: userData.profilePicture,
+      })
+    );
   }
 
   const handleFields = () => {
@@ -110,9 +117,6 @@ export default function SignUp({ setShowSignUp }: Props) {
     return;
   };
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
   useEffect(() => {
     console.log(step);
   }, [step]);
