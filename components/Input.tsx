@@ -20,14 +20,14 @@ export default function Input({ setState, type, value, placeholder }: Props) {
   };
   return (
     <div
-      className={`rounded-sm md:h-[50px] md:w-[300px] h-[45px] w-[250px] flex justify-center items-center  bg-grey hover:bg-gradient-to-r hover:from-grad-green hover:to-grad-blue focus-within:bg-gradient-to-r focus-within:from-grad-green focus-within:to-grad-blue`}
+      className={`rounded-sm md:h-[45px] md:w-[300px] h-[45px] w-[250px] flex justify-center items-center  bg-grey hover:bg-gradient-to-r hover:from-grad-green hover:to-grad-blue focus-within:bg-gradient-to-r focus-within:from-grad-green focus-within:to-grad-blue`}
     >
       <input
         type={type}
         value={value}
         placeholder={placeholder}
         onChange={handleInputChange}
-        className="p-4 rounded-sm group outline-none md:h-[46px] md:w-[296px] h-[41px] w-[246px] bg-dark-grey text-white text-lg "
+        className="text-sm placeholder:text-sm pt-2 mb-[1px] rounded-b-sm group outline-none md:h-[44px] md:w-[300px] h-[44px] w-[250px] bg-light-black text-white "
       />
     </div>
   );

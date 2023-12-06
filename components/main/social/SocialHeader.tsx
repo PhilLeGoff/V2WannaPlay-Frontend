@@ -1,6 +1,6 @@
 import user from "@/reducers/user";
 import React from "react";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 
 type Props = {
   setSocialDisplay: React.Dispatch<React.SetStateAction<number>>;

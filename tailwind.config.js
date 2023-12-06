@@ -19,6 +19,7 @@ module.exports = {
       red: "#DC143C",
       "grad-green": "#02FFC2",
       "grad-blue": "#03E1FF",
+      "light-black": "#131313",
     },
     screens: {
       sm: "480px",
@@ -34,6 +35,20 @@ module.exports = {
       },
       fontFamily: {
         tauri: ["Tauri", "sans-serif"],
+      },
+      typography: {
+        "social-icon": {
+          color: "red",
+          fontSize: "1em",
+          "&:hover": {
+            color: "#02FFC2",
+          },
+        },
+        "social-icon-hover": {
+          "&:hover": {
+            color: "#02FFC2",
+          },
+        },
       },
     },
   },

@@ -20,7 +20,7 @@ export default function Hero({
   return (
     <div
       className={
-        "relative bg-dark-grey w-full md:h-full bg-red-700 flex md:flex-row flex-col md:flex-grow text-lg"
+        "relative bg-black w-full md:h-full bg-red-700 flex md:flex-row flex-col md:flex-grow text-lg"
       }
       style={{ height: "1000px" }}
     >

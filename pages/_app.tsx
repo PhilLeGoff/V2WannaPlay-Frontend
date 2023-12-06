@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 
 // redux imports
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
@@ -11,13 +12,13 @@ import { persistReducer, persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import storage from "../reducers/storage.js";
 
-import { Tauri } from 'next/font/google';
+import { Tauri } from "next/font/google";
 
 const tauri = Tauri({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const reducers = combineReducers({ user });
 const persistConfig = { key: "wannaplay", storage };
@@ -30,11 +31,13 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: {session, ...pageProps} }: AppProps) {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <Component {...pageProps} />
+        <SessionProvider session={session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </PersistGate>
     </Provider>
   );

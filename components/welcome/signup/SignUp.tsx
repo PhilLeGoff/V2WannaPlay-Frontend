@@ -14,6 +14,7 @@ type Props = { setShowSignUp: React.Dispatch<React.SetStateAction<boolean>> };
 export default function SignUp({ setShowSignUp }: Props) {
   const userState = useSelector((state: any) => state.user.value);
   const dispatch = useDispatch();
+
   const [step, setStep] = useState<number>(1);
   const [userData, setUserData] = useState<UserData>({
     username: "",
@@ -122,8 +123,8 @@ export default function SignUp({ setShowSignUp }: Props) {
   }, [step]);
 
   return (
-    <div className="absolute inset-0 z-10 flex justify-center md:items-center md:h-full w-full h-[500px] bg-dark-grey bg-opacity-20">
-      <div className="rounded-md md:h-[500px] md:w-[700px] w-full h-[500px] flex flex-col justify-between bg-black bg-opacity-80 md:bg-opacity-95">
+    <div className="absolute inset-0 z-10 flex justify-center md:items-center md:h-full w-full h-[500px] bg-white bg-opacity-20">
+      <div className="rounded-md md:h-[500px] md:w-[700px] w-full h-[500px] flex flex-col justify-between bg-light-black">
         <header className="md:h-[70px] w-full flex justify-center items-center">
           <span className="ml-[70px] flex-grow h-full text-white md:text-xl text-lg flex justify-center items-center md:ml-[70px]">
             Create your account

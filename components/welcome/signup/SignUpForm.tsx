@@ -25,24 +25,37 @@ export default function SignUpForm({ userData, setUserData, step }: Props) {
       case 1: {
         return (
           <div className="flex flex-col justify-around items-center md:pt-16 md:w-[600] md:h-[300px] h-[250px] md:flex-grow">
-            <Input
-              value={userData.username}
-              setState={(value: string) => handleStateChange("username", value)}
-              type="text"
-              placeholder="username"
-            />
-            <Input
-              value={userData.email}
-              setState={(value: string) => handleStateChange("email", value)}
-              type="email"
-              placeholder="email"
-            />
-            <Input
-              value={userData.password}
-              setState={(value: string) => handleStateChange("password", value)}
-              type="password"
-              placeholder="password"
-            />
+            <div>
+              <p className={"text-sm"}>Username</p>
+              <Input
+                value={userData.username}
+                setState={(value: string) =>
+                  handleStateChange("username", value)
+                }
+                type="text"
+                placeholder="username"
+              />
+            </div>
+            <div>
+              <p className={"text-sm"}>Email address</p>
+              <Input
+                value={userData.email}
+                setState={(value: string) => handleStateChange("email", value)}
+                type="email"
+                placeholder="email"
+              />
+            </div>
+            <div>
+              <p className={"text-sm"}>Password</p>
+              <Input
+                value={userData.password}
+                setState={(value: string) =>
+                  handleStateChange("password", value)
+                }
+                type="password"
+                placeholder="password"
+              />
+            </div>
           </div>
         );
       }

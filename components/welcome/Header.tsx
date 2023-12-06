@@ -16,7 +16,7 @@ export default function Header({ setShowSignIn }: Props) {
   return (
     <header
       className={
-        "w-full md:h-32 h-24 bg-black flex justify-between items-center text-lg border-b-2 border-grey"
+        "w-full md:h-32 h-24 bg-light-black flex justify-between items-center text-lg border-b-2 border-grey"
       }
     >
       <div
@@ -31,7 +31,7 @@ export default function Header({ setShowSignIn }: Props) {
       <div
         className={`md:h-full h-58 md:w-1/3 w-full z-30
         ${menuOpen ? "static" : "hidden"} 
-          md:flex md:mr-10 md:justify-around items-center md:static absolute flex flex-col md:mt-0 top-24 left-0 bg-black md:flex-row md:space-x-4 md:bg-opacity-100 bg-opacity-90 `}
+          md:flex md:mr-10 md:justify-around items-center md:static absolute flex flex-col md:mt-0 top-24 left-0 bg-light-dark md:flex-row md:space-x-4 md:bg-black bg-light-black md:bg-opacity-100 bg-opacity-60 `}
       >
         <Link
           className={
